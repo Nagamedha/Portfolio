@@ -577,69 +577,90 @@
         }
 
         /* Experience Section */
+               /* Professional Experience Timeline - Horizontal */
         .experience {
             background: var(--light-bg);
             position: relative;
         }
 
-        .timeline {
+        .timeline-container {
             position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 2rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) #f1f1f1;
         }
 
-        .timeline::after {
+        .timeline-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .timeline-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .timeline-container::-webkit-scrollbar-thumb {
+            background: var(--gradient-1);
+            border-radius: 4px;
+        }
+
+        .timeline {
+            display: flex;
+            position: relative;
+            min-width: max-content;
+            padding: 1rem 0;
+        }
+
+        .timeline::before {
             content: '';
             position: absolute;
-            width: 6px;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 3px;
             background: var(--gradient-1);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-            border-radius: 10px;
+            z-index: 1;
+            border-radius: 2px;
         }
 
         .timeline-item {
-            padding: 10px 40px;
             position: relative;
-            background-color: inherit;
-            width: 50%;
+            min-width: 380px;
+            margin-right: 2rem;
+            z-index: 2;
         }
 
-        .timeline-item::after {
+        .timeline-item:last-child {
+            margin-right: 0;
+        }
+
+        .timeline-item::before {
             content: '';
             position: absolute;
-            width: 25px;
-            height: 25px;
-            right: -12px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18px;
+            height: 18px;
             background: white;
             border: 4px solid var(--primary-color);
-            top: 15px;
             border-radius: 50%;
-            z-index: 1;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-item:nth-child(even)::after {
-            left: -12px;
+            z-index: 3;
+            box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
         }
 
         .timeline-content {
-            padding: 30px;
             background: white;
-            position: relative;
-            border-radius: 20px;
+            border-radius: 25px;
+            padding: 1.8rem;
             box-shadow: var(--shadow);
+            border: 1px solid #eee;
             transition: all 0.3s ease;
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
         }
 
         .timeline-content::before {
@@ -650,36 +671,234 @@
             right: 0;
             height: 5px;
             background: var(--gradient-1);
-            border-radius: 20px 20px 0 0;
         }
 
-        .timeline-content h3 {
+        .timeline-content:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .timeline-date {
+            background: var(--gradient-1);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            font-weight: 700;
             color: var(--text-color);
             margin-bottom: 0.5rem;
-            font-size: 1.3rem;
         }
 
-        .company {
+        .timeline-subtitle {
+            font-size: 1.1rem;
             color: var(--primary-color);
             font-weight: 600;
             margin-bottom: 1rem;
         }
 
-        .timeline-content ul {
-            margin-left: 1rem;
+        .timeline-location {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
         }
 
-        .timeline-content li {
-            margin-bottom: 0.8rem;
+        .timeline-achievements {
+            margin-bottom: 1rem;
+        }
+
+        .timeline-achievements li {
             color: #666;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
             position: relative;
         }
 
-        .timeline-content li::before {
+        .timeline-achievements li::before {
             content: '▶';
-            color: var(--primary-color);
             position: absolute;
-            left: -1rem;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .timeline-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .scroll-hint {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .scroll-hint::before,
+        .scroll-hint::after {
+            content: '→';
+            animation: pulse 2s infinite;
+            color: var(--primary-color);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Skills Section */
+        .skills {
+            background: white;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .skills-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .skill-category h3 {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category i {
+            color: var(--primary-color);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--light-bg);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-header {
+            background: var(--gradient-1);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-links a:hover {
+            transform: translateX(5px);
         }
 
         /* Projects Section */
@@ -1166,64 +1385,120 @@
     </section>
 
     <!-- Experience Section -->
+    <!-- Professional Experience Timeline -->
     <section id="experience" class="experience">
         <div class="container">
-            <h2 class="section-title fade-in">Professional Journey</h2>
-            <p class="section-subtitle fade-in">4+ years of driving innovation through automation and data science</p>
-            
-            <div class="timeline fade-in">
-                <div class="timeline-item slide-in-left">
-                    <div class="timeline-content">
-                        <h3>IT Intern - Data Science</h3>
-                        <div class="company">Randstad USA | May 2025 - Present</div>
-                        <ul>
-                            <li>Collaborated with Data Science team to re-engineer IT support reporting processes</li>
-                            <li>Developed end-to-end ETL pipeline in Google BigQuery processing high-volume data</li>
-                            <li>Created dynamic dashboards in Looker Studio achieving 100% reporting automation</li>
-                            <li>Eliminated manual errors and significantly improved team efficiency</li>
-                        </ul>
+            <h2 class="section-title fade-in">Professional Experience</h2>
+            <p class="section-subtitle fade-in">4.5+ years of driving innovation through automation and data science</p>
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Aug 2025 – Dec 2025</div>
+                            <h3 class="timeline-title">Graduate Teaching Assistant</h3>
+                            <div class="timeline-subtitle">Georgia State University</div>
+                            <div class="timeline-location">Atlanta, GA</div>
+                            <ul class="timeline-achievements">
+                                <li>Mentored over 200 students in Database Systems and Discrete Mathematics</li>
+                                <li>Provided feedback on data-centric projects and clarified complex concepts</li>
+                            </ul>
+                            <div class="timeline-skills">
+                                <span class="skill-tag">Database Systems</span>
+                                <span class="skill-tag">Discrete Mathematics</span>
+                                <span class="skill-tag">Mentoring</span>
+                                <span class="skill-tag">Teaching</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="timeline-item slide-in-right">
-                    <div class="timeline-content">
-                        <h3>Graduate Teaching Assistant</h3>
-                        <div class="company">Georgia State University | Aug 2024 - May 2025</div>
-                        <ul>
-                            <li>Taught discrete mathematics and database systems to 200+ students</li>
-                            <li>Developed engaging lectures enhancing student understanding</li>
-                            <li>Mentored students on complex projects and academic accommodations</li>
-                            <li>Maintained academic rigor through grading and curriculum support</li>
-                        </ul>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">May 2025 – Aug 2025</div>
+                            <h3 class="timeline-title">Data Science Intern</h3>
+                            <div class="timeline-subtitle">Randstad</div>
+                            <div class="timeline-location">Atlanta, GA</div>
+                            <ul class="timeline-achievements">
+                                <li>Developed automated ETL pipelines by fetching reports via APIs (IVANTI, Bright Pattern)</li>
+                                <li>Cleaned and transformed data with Google Apps Script, loading to BigQuery</li>
+                                <li>Queried KPIs and built dynamic, filterable dashboards in Looker Studio</li>
+                                <li>Achieved 100% automation in reporting and eliminated manual process errors</li>
+                                <li>Partnered with business teams to align data insights with operational decisions</li>
+                            </ul>
+                            <div class="timeline-skills">
+                                <span class="skill-tag">ETL Pipelines</span>
+                                <span class="skill-tag">APIs</span>
+                                <span class="skill-tag">BigQuery</span>
+                                <span class="skill-tag">Looker Studio</span>
+                                <span class="skill-tag">Google Apps Script</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="timeline-item slide-in-left">
-                    <div class="timeline-content">
-                        <h3>Lead Engineer</h3>
-                        <div class="company">HCLTech | Feb 2023 - Sep 2023</div>
-                        <ul>
-                            <li>Designed reusable Taskbot adopted by entire team</li>
-                            <li>Developed automation bots reducing manual errors by 90%</li>
-                            <li>Saved approximately 5 FTEs for APAC clients</li>
-                            <li>Engineered complex loan funding bot with master-slave architecture</li>
-                        </ul>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Aug 2024 – May 2025</div>
+                            <h3 class="timeline-title">Graduate Teaching Assistant</h3>
+                            <div class="timeline-subtitle">Georgia State University</div>
+                            <div class="timeline-location">Atlanta, GA</div>
+                            <ul class="timeline-achievements">
+                                <li>Mentored students in Database Systems and Discrete Mathematics courses</li>
+                                <li>Provided comprehensive feedback on assignments and projects</li>
+                                <li>Facilitated understanding of complex mathematical and database concepts</li>
+                            </ul>
+                            <div class="timeline-skills">
+                                <span class="skill-tag">Database Systems</span>
+                                <span class="skill-tag">Discrete Math</span>
+                                <span class="skill-tag">Academic Mentoring</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="timeline-item slide-in-right">
-                    <div class="timeline-content">
-                        <h3>Systems Engineer</h3>
-                        <div class="company">Tata Consultancy Services | Jul 2019 - Feb 2023</div>
-                        <ul>
-                            <li>Led critical migration from Automation Anywhere v11 to A360</li>
-                            <li>Promoted to Team Lead, implemented Agile/CI/CD lifecycle</li>
-                            <li>Delivered flagship Change Review bot saving 10 FTEs</li>
-                            <li>Reduced processing time by 66% and manual reviews by 96%</li>
-                        </ul>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Feb 2023 – Sep 2023</div>
+                            <h3 class="timeline-title">Lead Engineer – RPA</h3>
+                            <div class="timeline-subtitle">HCLTech</div>
+                            <div class="timeline-location">Chennai, India</div>
+                            <ul class="timeline-achievements">
+                                <li>Developed automation bots that reduced manual errors by 90%</li>
+                                <li>Saved an estimated 5 FTEs for APAC clients</li>
+                                <li>Designed and deployed a reusable Taskbot for Eclipse login</li>
+                                <li>Eliminated redundant development and testing efforts across team</li>
+                            </ul>
+                            <div class="timeline-skills">
+                                <span class="skill-tag">RPA</span>
+                                <span class="skill-tag">Automation Anywhere</span>
+                                <span class="skill-tag">Process Automation</span>
+                                <span class="skill-tag">Team Leadership</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Jul 2019 – Feb 2023</div>
+                            <h3 class="timeline-title">Systems Engineer</h3>
+                            <div class="timeline-subtitle">Tata Consultancy Services (Client: Citi Bank)</div>
+                            <div class="timeline-location">Hyderabad & Kolkata, India</div>
+                            <ul class="timeline-achievements">
+                                <li>Saved over 30+ FTEs across multiple projects by designing scalable bots</li>
+                                <li>Led critical migration from Automation Anywhere v11 to A360 platform</li>
+                                <li>Trained junior developers while maintaining project deliveries</li>
+                                <li>Delivered flagship Change Review bot that cut processing time by over 66%</li>
+                                <li>Created Data Quality solution that reduced manual reviews by 96%</li>
+                            </ul>
+                            <div class="timeline-skills">
+                                <span class="skill-tag">Automation Anywhere</span>
+                                <span class="skill-tag">Bot Development</span>
+                                <span class="skill-tag">System Migration</span>
+                                <span class="skill-tag">Data Quality</span>
+                                <span class="skill-tag">Team Training</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="scroll-hint">Scroll horizontally to see more experience</div>
         </div>
     </section>
 
