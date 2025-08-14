@@ -505,6 +505,73 @@
             font-weight: 500;
         }
 
+        /* Education Section */
+        .education {
+            background: white;
+        }
+
+        .education-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .education-card {
+            background: white;
+            border-radius: 25px;
+            padding: 2rem;
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-1);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .education-card h3 {
+            color: var(--text-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .degree {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .gpa {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .education-card .date {
+            background: var(--gradient-1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 1rem 0;
+        }
+
+
         /* Skills Section */
         .skills {
             background: white;
@@ -1131,6 +1198,45 @@
             transform: translateX(0);
         }
 
+        /* Leadership & Awards */
+        .awards {
+            background: white;
+        }
+
+        /* Fade in animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
@@ -1232,9 +1338,11 @@
         <ul class="nav-menu">
             <li><a href="#home" class="nav-link">Home</a></li>
             <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
             <li><a href="#skills" class="nav-link">Skills</a></li>
             <li><a href="#experience" class="nav-link">Experience</a></li>
             <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#awards" class="nav-link">Awards</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
     </nav>
@@ -1306,6 +1414,28 @@
                 <div class="stat-item">
                     <div class="stat-number">200+</div>
                     <div class="stat-label">Students Mentored</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title fade-in">Education</h2>
+            <p class="section-subtitle fade-in">Academic Foundation in Computer Science</p>
+            <div class="education-section fade-in">
+                <div class="education-card">
+                    <h3>Georgia State University</h3>
+                    <div class="degree">Master of Science in Computer Science</div>
+                    <div class="date">Aug 2024 – Dec 2025</div>
+                    <div class="gpa">GPA: 4.13/4.0 • Atlanta, GA</div>
+                </div>
+                <div class="education-card">
+                    <h3>R.V.R & J.C. College of Engineering</h3>
+                    <div class="degree">Bachelor of Technology in Computer Science</div>
+                    <div class="date">Jul 2015 – May 2019</div>
+                    <div class="gpa">GPA: 3.73/4.0 • Guntur, India</div>
                 </div>
             </div>
         </div>
@@ -1567,6 +1697,51 @@
         </div>
     </section>
 
+    <!-- Leadership & Awards -->
+    <section id="awards" class="awards">
+        <div class="container">
+            <h2 class="section-title fade-in">Leadership & Awards</h2>
+            <p class="section-subtitle fade-in">Recognition for excellence and innovation</p>
+            <div class="education-section fade-in">
+                <div class="education-card">
+                    <h3>Stanford University Innovation Fellow</h3>
+                    <div class="degree">Global Leadership Program by Stanford's d.school</div>
+                    <div class="timeline-description" style="color: #666; margin-top: 1rem;">
+                        Selected for a global leadership program by Stanford's d.school to lead Design Thinking 
+                        workshops and drive student innovation projects.
+                    </div>
+                    <div class="skill-tags" style="margin-top: 1rem;">
+                        <span class="skill-tag">Design Thinking</span>
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Innovation</span>
+                    </div>
+                </div>
+                <div class="education-card">
+                    <h3>Star of the Month Awards</h3>
+                    <div class="degree">HCL & TCS Recognition</div>
+                    <div class="timeline-description" style="color: #666; margin-top: 1rem;">
+                        Awarded at both companies for project ownership, innovation, and dedication to delivering 
+                        exceptional results and driving team success.
+                    </div>
+                    <div class="skill-tags" style="margin-top: 1rem;">
+                        <span class="skill-tag">Project Ownership</span>
+                        <span class="skill-tag">Innovation</span>
+                        <span class="skill-tag">Team Leadership</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem; padding: 2rem; background: var(--light-bg); border-radius: 20px;">
+                <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Certifications</h4>
+                <p style="color: #666; line-height: 1.6;">
+                    Automation Anywhere A360 Master • Xceptor • Supervised ML • Python for DS & ML<br>
+                    <em style="font-size: 0.9rem;">Full list available on my LinkedIn profile</em>
+                </p>
+            </div>
+        </div>
+    </section>
+
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
             <div class="container">
@@ -1614,19 +1789,19 @@
                     <p style="font-size: 0.9rem; opacity: 0.8;">Open to Relocation, USA</p>
                     <p style="font-size: 0.9rem; opacity: 0.8;">Open to Remote roles</p>
                 </div>
-        </div>
+        
        
             <div class="contact-form fade-in">
                 <h3>Get In Touch</h3>
                  <i class="fas fa-envelope" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
-                <h4 style="color: var(--text-color); margin-bottom: 1rem;">Contact Form</h4>
-                <p style="margin-bottom: 2rem; opacity: 0.9;">Fill out the form below and I'll get back to you as soon as possible!</p>
+                <p style="margin-bottom: 2rem; opacity: 0.9;">Fill out the contact form below and I'll get back to you as soon as possible!</p>
                 
                 <!-- REPLACE THIS WITH YOUR GOOGLE FORM EMBED -->
                 <div class="google-form-container">
                     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf7bwrGb6SuO6HdYfjYntnRfcF22ZUE5yy-BMk_dDRxU_K8hg/viewform?usp=sharing&ouid=105987302413759956873" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     
