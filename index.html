@@ -636,20 +636,8 @@
             margin-right: 0;
         }
 
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 18px;
-            height: 18px;
-            background: white;
-            border: 4px solid var(--primary-color);
-            border-radius: 50%;
-            z-index: 3;
-            box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
-        }
+        .timeline-item::before { display: none; }
+
 
         .timeline-content {
             background: white;
@@ -1498,7 +1486,7 @@
                     </div>
                 </div>
             </div>
-            <div class="scroll-hint">Scroll horizontally to see more experience</div>
+            <div class="scroll-hint">Scroll horizontally to see more </div>
         </div>
     </section>
 
@@ -1605,12 +1593,12 @@
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <h3> Primary Email</h3>
-                    <p style="font-size: 0.5rem; opacity: 0.8;">nagamedha.sakhamuri98@gmail.com</p>
+                    <p style="font-size: 0.8rem; opacity: 0.8;">nagamedha.sakhamuri98@gmail.com</p>
                     <a href="mailto:nagamedha.sakhamuri98@gmail.com" class="btn btn-primary" style="margin-top: 1rem;">
                         Send Email
                     </a>
                     <h3>Secondary Email</h3>
-                    <p style="font-size: 0.5rem; opacity: 0.8;">nsakhamuri1@student.gsu.edu</p>
+                    <p style="font-size: 0.8rem; opacity: 0.8;">nsakhamuri1@student.gsu.edu</p>
                     <a href="mailto:nsakhamuri1@student.gsu.edu" class="btn btn-primary" style="margin-top: 1rem;">
                         Send Email
                     </a>
