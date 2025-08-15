@@ -131,6 +131,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
+/* ===== Fixed navbar offset (prevents hero being covered) ===== */
+(function fixNavOffset(){
+  const nav = document.getElementById('navbar');
+  if (!nav) return;
+  function updateNavH(){
+    const h = nav.getBoundingClientRect().height;
+    document.documentElement.style.setProperty('--nav-h', h + 'px');
+  }
+  updateNavH();
+  window.addEventListener('resize', updateNavH, { passive: true });
+  // Re-run after fonts load (sizes can change)
+  window.addEventListener('load', updateNavH);
+})();
+
+
 /* ================ Navbar on scroll styling ================= */
 (function navbarScrollStyle() {
   const navbar = document.getElementById('navbar');
