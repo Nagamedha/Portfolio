@@ -419,6 +419,42 @@ section { padding: 100px 0; position: relative; }
 }
 .contact-item:hover { transform: translateY(-5px); background: rgba(255,255,255,0.15); }
 .contact-item i { font-size: 2.2rem; margin-bottom: 1rem; color: rgba(255,255,255,0.85); }
+/* Email lines inside contact cards */
+.contact-item .email {
+  display: inline-block;
+  font-size: 0.9rem;         /* smaller than body text */
+  line-height: 1.4;
+  color: #fff;               /* inherits from contact section; adjust if needed */
+  opacity: 0.9;
+  text-decoration: none;
+  overflow-wrap: anywhere;   /* wrap long addresses at any point */
+  word-break: break-word;
+  hyphens: auto;
+  max-width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.contact-item .email:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+/* If you want them even smaller on mobile */
+@media (max-width: 768px) {
+  .contact-item .email {
+    font-size: 0.85rem;
+  }
+}
+
+.contact-item {
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+.contact-item h3 {
+  overflow-wrap: anywhere;
+}
+
 
 /* =========================
    Footer
@@ -432,6 +468,12 @@ section { padding: 100px 0; position: relative; }
 }
 .social-links a:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(102,126,234,0.3); }
 .love-note { font-size: .9rem; opacity: .75; margin-top: .5rem; }
+
+.footer .social-links a {
+  width: 44px;
+  height: 44px;
+  font-size: 1.05rem;
+}
 
 /* =========================
    Reveal Animations
@@ -503,6 +545,7 @@ section { padding: 100px 0; position: relative; }
   color: #666;
   font-size: 0.95rem;
 }
+
 
 /* =========================
    Small UX niceties
