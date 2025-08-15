@@ -387,5 +387,6 @@ section .container{ position:relative; z-index:1; } /* keep content above */
 .projects .project-card { scroll-snap-align: start; }
 
 
+
 /* Large title shrink a bit on tablets */
 @media (max-width:992px){.hero-title{font-size:3rem}}
