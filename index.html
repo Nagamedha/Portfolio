@@ -251,222 +251,242 @@
 
   <!-- Experience (Horizontal timeline with external dots) -->
   <section id="experience" class="experience">
-    <div class="container">
-      <h2 class="section-title fade-in">Professional Experience</h2>
-      <p class="section-subtitle fade-in">4.5+ years of automation & analytics impact</p>
+  <div class="container">
+    <h2 class="section-title">Professional Experience</h2>
+    <p class="section-subtitle">4.5+ years of automation & analytics impact</p>
 
-      <div class="timeline-container">
-        <div class="timeline" aria-label="Experience Timeline">
-          <!-- Each item now has a .timeline-dot outside the card (centered on the line) -->
-          <div class="timeline-item">
-            <span class="timeline-dot" aria-hidden="true"></span>
-            <div class="timeline-content">
-              <div class="timeline-date">Aug 2025 – Dec 2025</div>
-              <h3 class="timeline-title">Graduate Teaching Assistant</h3>
-              <div class="timeline-subtitle">Georgia State University • Atlanta, GA</div>
-              <ul class="timeline-achievements">
-                <li>Mentored 200+ students in Database Systems & Discrete Mathematics</li>
-                <li>Clarified complex topics and reviewed data-centric projects</li>
-              </ul>
-              <div class="timeline-skills">
-                <span class="skill-tag">Database Systems</span>
-                <span class="skill-tag">Discrete Math</span>
-                <span class="skill-tag">Mentoring</span>
-              </div>
-            </div>
-          </div>
+    <div class="h-strip" data-strip="experience">
+      <!-- small Prev/Next buttons (optional) -->
+      <div class="strip-nav" aria-hidden="false">
+        <button class="strip-btn" data-prev="experience" aria-label="Previous">‹</button>
+        <button class="strip-btn" data-next="experience" aria-label="Next">›</button>
+      </div>
 
-          <div class="timeline-item">
-            <span class="timeline-dot" aria-hidden="true"></span>
-            <div class="timeline-content">
-              <div class="timeline-date">May 2025 – Aug 2025</div>
-              <h3 class="timeline-title">Data Science Intern</h3>
-              <div class="timeline-subtitle">Randstad • Atlanta, GA</div>
-              <ul class="timeline-achievements">
-                <li>API‑driven ETL (Ivanti, Bright Pattern) → BigQuery → Looker dashboards</li>
-                <li>100% reporting automation; removed manual errors and rework</li>
-                <li>Partnered with ops to align KPIs to decisions</li>
-              </ul>
-              <div class="timeline-skills">
-                <span class="skill-tag">APIs</span><span class="skill-tag">ETL</span>
-                <span class="skill-tag">BigQuery</span><span class="skill-tag">Looker Studio</span>
-                <span class="skill-tag">Apps Script</span>
-              </div>
-            </div>
-          </div>
+      <!-- the single-row, scrollable track -->
+      <div class="timeline h-track" id="track-experience" aria-label="Experience Timeline">
 
-          <div class="timeline-item">
-            <span class="timeline-dot" aria-hidden="true"></span>
-            <div class="timeline-content">
-              <div class="timeline-date">Aug 2024 – May 2025</div>
-              <h3 class="timeline-title">Graduate Teaching Assistant</h3>
-              <div class="timeline-subtitle">Georgia State University • Atlanta, GA</div>
-              <ul class="timeline-achievements">
-                <li>Mentored students and provided in‑depth project feedback</li>
-                <li>Helped simplify complex database & math concepts</li>
-              </ul>
-              <div class="timeline-skills">
-                <span class="skill-tag">Academia</span><span class="skill-tag">Databases</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-dot" aria-hidden="true"></span>
-            <div class="timeline-content">
-              <div class="timeline-date">Feb 2023 – Sep 2023</div>
-              <h3 class="timeline-title">Lead Engineer – RPA</h3>
-              <div class="timeline-subtitle">HCLTech • Chennai, India</div>
-              <ul class="timeline-achievements">
-                <li>Reduced manual errors by 90% via robust automation bots</li>
-                <li>~5 FTEs saved; reusable Taskbot for Eclipse login</li>
-                <li>Eliminated redundant dev/test cycles</li>
-              </ul>
-              <div class="timeline-skills">
-                <span class="skill-tag">RPA</span><span class="skill-tag">Automation Anywhere</span>
-                <span class="skill-tag">Process Automation</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-dot" aria-hidden="true"></span>
-            <div class="timeline-content">
-              <div class="timeline-date">Jul 2019 – Feb 2023</div>
-              <h3 class="timeline-title">Systems Engineer</h3>
-              <div class="timeline-subtitle">TCS (Client: Citi) • India</div>
-              <ul class="timeline-achievements">
-                <li>Saved 30+ FTEs via scalable RPA solutions</li>
-                <li>Led AA v11 → A360 migration</li>
-                <li>Change Review bot: >66% faster processing</li>
-                <li>Data Quality solution: 96% fewer manual reviews</li>
-              </ul>
-              <div class="timeline-skills">
-                <span class="skill-tag">A360</span><span class="skill-tag">Data Quality</span>
-                <span class="skill-tag">Bot Dev</span><span class="skill-tag">Training</span>
-              </div>
+        <!-- ITEM 1 -->
+        <div class="timeline-item">
+          <div class="timeline-content h-card">
+            <div class="timeline-date">Aug 2025 – Dec 2025</div>
+            <h3 class="timeline-title">Graduate Teaching Assistant</h3>
+            <div class="timeline-subtitle">Georgia State University • Atlanta, GA</div>
+            <ul class="timeline-achievements">
+              <li>Mentored 200+ students in Database Systems & Discrete Mathematics</li>
+              <li>Clarified complex topics and reviewed data-centric projects</li>
+            </ul>
+            <div class="timeline-skills">
+              <span class="skill-tag">Database Systems</span>
+              <span class="skill-tag">Discrete Math</span>
+              <span class="skill-tag">Mentoring</span>
             </div>
           </div>
         </div>
-        <div class="scroll-hint">Scroll horizontally to see more</div>
-      </div>
-    </div>
-  </section>
+
+        <!-- ITEM 2 -->
+        <div class="timeline-item">
+          <div class="timeline-content h-card">
+            <div class="timeline-date">May 2025 – Aug 2025</div>
+            <h3 class="timeline-title">Data Science Intern</h3>
+            <div class="timeline-subtitle">Randstad • Atlanta, GA</div>
+            <ul class="timeline-achievements">
+              <li>API-driven ETL (Ivanti, Bright Pattern) → BigQuery → Looker dashboards</li>
+              <li>100% reporting automation; removed manual errors and rework</li>
+              <li>Partnered with ops to align KPIs to decisions</li>
+            </ul>
+            <div class="timeline-skills">
+              <span class="skill-tag">APIs</span><span class="skill-tag">ETL</span>
+              <span class="skill-tag">BigQuery</span><span class="skill-tag">Looker Studio</span>
+              <span class="skill-tag">Apps Script</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ITEM 3 -->
+        <div class="timeline-item">
+          <div class="timeline-content h-card">
+            <div class="timeline-date">Aug 2024 – May 2025</div>
+            <h3 class="timeline-title">Graduate Teaching Assistant</h3>
+            <div class="timeline-subtitle">Georgia State University • Atlanta, GA</div>
+            <ul class="timeline-achievements">
+              <li>Mentored students and provided in-depth project feedback</li>
+              <li>Helped simplify complex database & math concepts</li>
+            </ul>
+            <div class="timeline-skills">
+              <span class="skill-tag">Academia</span><span class="skill-tag">Databases</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ITEM 4 -->
+        <div class="timeline-item">
+          <div class="timeline-content h-card">
+            <div class="timeline-date">Feb 2023 – Sep 2023</div>
+            <h3 class="timeline-title">Lead Engineer – RPA</h3>
+            <div class="timeline-subtitle">HCLTech • Chennai, India</div>
+            <ul class="timeline-achievements">
+              <li>Reduced manual errors by 90% via robust automation bots</li>
+              <li>~5 FTEs saved; reusable Taskbot for Eclipse login</li>
+              <li>Eliminated redundant dev/test cycles</li>
+            </ul>
+            <div class="timeline-skills">
+              <span class="skill-tag">RPA</span><span class="skill-tag">Automation Anywhere</span>
+              <span class="skill-tag">Process Automation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ITEM 5 -->
+        <div class="timeline-item">
+          <div class="timeline-content h-card">
+            <div class="timeline-date">Jul 2019 – Feb 2023</div>
+            <h3 class="timeline-title">Systems Engineer</h3>
+            <div class="timeline-subtitle">TCS (Client: Citi) • India</div>
+            <ul class="timeline-achievements">
+              <li>Saved 30+ FTEs via scalable RPA solutions</li>
+              <li>Led AA v11 → A360 migration</li>
+              <li>Change Review bot: &gt;66% faster processing</li>
+              <li>Data Quality solution: 96% fewer manual reviews</li>
+            </ul>
+            <div class="timeline-skills">
+              <span class="skill-tag">A360</span><span class="skill-tag">Data Quality</span>
+              <span class="skill-tag">Bot Dev</span><span class="skill-tag">Training</span>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- /.timeline.h-track -->
+    </div>   <!-- /.h-strip -->
+  </div>
+</section>
+
 
   <!-- Projects -->
   <section id="projects" class="projects">
   <div class="container">
-    <h2 class="section-title fade-in">Featured Projects</h2>
-    <p class="section-subtitle fade-in">Selected work across automation, data, and AI</p>
+    <h2 class="section-title">Featured Projects</h2>
+    <p class="section-subtitle">Selected work across automation, data, and AI</p>
 
-    <div class="projects-grid fade-in">
-      <!-- Serverless Data Pipeline -->
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-icon"><i class="fas fa-diagram-project"></i></div>
-          <h3>Serverless Data Pipeline</h3>
-        </div>
-        <div class="project-content">
-          <p>Engineered a serverless data extraction pipeline on AWS (S3, SQS, Dockerized Lambda, DynamoDB), cutting processing time from hours to seconds and ~90% manual effort.</p>
-          <div class="project-links">
-            <a href="https://github.com/Nagamedha/CC_Project" target="_blank" rel="noopener">
-              <i class="fab fa-github"></i> View Code
-            </a>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">AWS</span>
-            <span class="skill-tag">Lambda</span>
-            <span class="skill-tag">SQS</span>
-            <span class="skill-tag">DynamoDB</span>
-          </div>
-        </div>
+    <div class="h-strip" data-strip="projects">
+      <!-- small Prev/Next buttons (optional) -->
+      <div class="strip-nav" aria-hidden="false">
+        <button class="strip-btn" data-prev="projects" aria-label="Previous">‹</button>
+        <button class="strip-btn" data-next="projects" aria-label="Next">›</button>
       </div>
 
-      <!-- Secure Federated Learning -->
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-icon"><i class="fas fa-shield-halved"></i></div>
-          <h3>Secure Federated Learning</h3>
-        </div>
-        <div class="project-content">
-          <p>Python/PyTorch federated learning system detecting/mitigating malicious clients; achieved 98.52% accuracy in a secure distributed setup.</p>
-          <div class="project-links">
-            <a href="https://github.com/Nagamedha/CSC8370_Data_Security_Project" target="_blank" rel="noopener">
-              <i class="fab fa-github"></i> View Code
-            </a>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">Federated Learning</span>
-            <span class="skill-tag">Security</span>
-          </div>
-        </div>
-      </div>
+      <!-- replace the old .projects-grid with this .h-track -->
+      <div class="h-track" id="track-projects">
 
-      <!-- Applied Machine Learning -->
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-icon"><i class="fas fa-brain"></i></div>
-          <h3>Applied Machine Learning</h3>
-        </div>
-        <div class="project-content">
-          <p>End‑to‑end analysis with Scikit‑learn, MLP, and Random Forest to classify data and impute missing values; 100% accuracy on multiple classification tasks.</p>
-          <div class="project-links">
-            <a href="https://github.com/Nagamedha/ML_Grad_Project" target="_blank" rel="noopener">
-              <i class="fab fa-github"></i> View Code
-            </a>
+        <!-- Serverless Data Pipeline -->
+        <article class="project-card h-card">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-diagram-project"></i></div>
+            <h3>Serverless Data Pipeline</h3>
           </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Scikit‑learn</span>
-            <span class="skill-tag">MLP</span>
-            <span class="skill-tag">Random Forest</span>
+          <div class="project-content">
+            <p>Engineered a serverless data extraction pipeline on AWS (S3, SQS, Dockerized Lambda, DynamoDB), cutting processing time from hours to seconds and ~90% manual effort.</p>
+            <div class="project-links">
+              <a href="https://github.com/Nagamedha/CC_Project" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> View Code
+              </a>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">Lambda</span>
+              <span class="skill-tag">SQS</span>
+              <span class="skill-tag">DynamoDB</span>
+            </div>
           </div>
-        </div>
-      </div>
+        </article>
 
-      <!-- Other Notable Projects -->
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-icon"><i class="fas fa-list-check"></i></div>
-          <h3>Other Notable Projects</h3>
-        </div>
-        <div class="project-content">
-          <ul class="link-list">
-            <li><a href="https://github.com/Nagamedha/Topics_Project" target="_blank" rel="noopener">E‑commerce Content Classification</a></li>
-            <li><a href="https://drive.google.com/drive/folders/1uaNAeurbdx-1zIOPtFrP-ugq1_MPKTD6?usp=drive_link" target="_blank" rel="noopener">Smart Sentiment Analytics (demo)</a></li>
-            <li><a href="https://github.com/Nagamedha/Undergrad_Projects/" target="_blank" rel="noopener">IoT Traffic Alert System</a></li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/Nagamedha" target="_blank" rel="noopener">
-              <i class="fab fa-github"></i> More on GitHub
-            </a>
+        <!-- Secure Federated Learning -->
+        <article class="project-card h-card">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-shield-halved"></i></div>
+            <h3>Secure Federated Learning</h3>
           </div>
-        </div>
-      </div>
+          <div class="project-content">
+            <p>Python/PyTorch federated learning system detecting/mitigating malicious clients; achieved 98.52% accuracy in a secure distributed setup.</p>
+            <div class="project-links">
+              <a href="https://github.com/Nagamedha/CSC8370_Data_Security_Project" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> View Code
+              </a>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">PyTorch</span>
+              <span class="skill-tag">Federated Learning</span>
+              <span class="skill-tag">Security</span>
+            </div>
+          </div>
+        </article>
 
-      <!-- Keep your existing 2–3 showcase cards if you want -->
-      <!-- Example of your existing “Automated Reporting Pipeline” card -->
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-icon"><i class="fas fa-chart-line"></i></div>
-          <h3>Automated Reporting Pipeline</h3>
-        </div>
-        <div class="project-content">
-          <p>API → ETL → BigQuery → Looker dashboards; 100% automation powering ops KPIs.</p>
-          <div class="project-links">
-            <a href="IT_Dashboard.pdf" class="btn btn-outline" target="_blank" rel="noopener">
-          <i class="fas fa-file"></i> View Dashboard
-        </a>
+        <!-- Applied Machine Learning -->
+        <article class="project-card h-card">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-brain"></i></div>
+            <h3>Applied Machine Learning</h3>
           </div>
-          <div class="skill-tags">
-            <span class="skill-tag">BigQuery</span><span class="skill-tag">Looker</span><span class="skill-tag">ETL</span>
+          <div class="project-content">
+            <p>End-to-end analysis with Scikit-learn, MLP, and Random Forest to classify data and impute missing values; 100% accuracy on multiple classification tasks.</p>
+            <div class="project-links">
+              <a href="https://github.com/Nagamedha/ML_Grad_Project" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> View Code
+              </a>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">Scikit-learn</span>
+              <span class="skill-tag">MLP</span>
+              <span class="skill-tag">Random Forest</span>
+            </div>
           </div>
-        </div>
-      </div>
+        </article>
 
-    </div>
+        <!-- Other Notable Projects -->
+        <article class="project-card h-card">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-list-check"></i></div>
+            <h3>Other Notable Projects</h3>
+          </div>
+          <div class="project-content">
+            <ul class="link-list">
+              <li><a href="https://github.com/Nagamedha/Topics_Project" target="_blank" rel="noopener">E-commerce Content Classification</a></li>
+              <li><a href="https://drive.google.com/drive/folders/1uaNAeurbdx-1zIOPtFrP-ugq1_MPKTD6?usp=drive_link" target="_blank" rel="noopener">Smart Sentiment Analytics (demo)</a></li>
+              <li><a href="https://github.com/Nagamedha/Undergrad_Projects/" target="_blank" rel="noopener">IoT Traffic Alert System</a></li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Nagamedha" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> More on GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Automated Reporting Pipeline -->
+        <article class="project-card h-card">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>Automated Reporting Pipeline</h3>
+          </div>
+          <div class="project-content">
+            <p>API → ETL → BigQuery → Looker dashboards; 100% automation powering ops KPIs.</p>
+            <div class="project-links">
+              <a href="IT_Dashboard.pdf" class="btn btn-outline" target="_blank" rel="noopener">
+                <i class="fas fa-file"></i> View Dashboard
+              </a>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">BigQuery</span>
+              <span class="skill-tag">Looker</span>
+              <span class="skill-tag">ETL</span>
+            </div>
+          </div>
+        </article>
+
+      </div> <!-- /.h-track -->
+    </div>   <!-- /.h-strip -->
   </div>
 </section>
+
 
 
   <!-- Awards -->
