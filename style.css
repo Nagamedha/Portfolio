@@ -414,23 +414,43 @@ section .container{ position:relative; z-index:1; } /* keep content above */
 .exp-list{ padding-left:1.05rem; margin:0 0 .8rem; }
 .exp-list li{ color:#666; margin:.4rem 0; }
 
-.role-label {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin: 0.3rem 0 1rem;
-  color: #666; /* softer subtitle color */
-  letter-spacing: 0.5px;
+
+
+/* --- Certifications: remove dots/markers completely --- */
+.certs-note .link-list,
+.certs-note ul{
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+.certs-note li{
+  position: relative;
+  padding-left: 0;         /* keep links close to the left edge */
+}
+.certs-note li::marker,
+.certs-note li::before{
+  content: '' !important;  /* kill any custom markers (just in case) */
+  display: none !important;
 }
 
-.certifications ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
+/* --- Hero: make 'Proven experience' / 'Aspirations' a bold centered subtitle
+       and add breathing room above it --- */
+.role-label{
+  display: block;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.25rem;      /* desktop size ~ your Education card titles */
+  color: #ffffff;          /* keep it bright on the gradient */
+  letter-spacing: .2px;
+  margin: 18px auto 8px;   /* ↑ extra gap from the bullet list */
 }
-.certifications ul li {
-  margin-bottom: 0.4rem; /* optional spacing between items */
+
+@media (max-width: 768px){
+  .role-label{ font-size: 1.1rem; margin-top: 14px; }
 }
+
+/* also give a bit more space after the hero bullet list */
+.hero-points{ margin-bottom: 1rem !important; }
 
 
 
