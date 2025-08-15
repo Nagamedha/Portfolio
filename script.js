@@ -149,9 +149,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 (function initFloaters() {
   const ICONS = {
-    books: ["📘","📗","📙","📕","📚"],   // Education
-    medals:["🏅","🎖️","🏆"]            // Awards
-  };
+  books:  ["📘","📗","📙","📕","📚"],      // Education
+  medals: ["🏅","🎖️","🏆"],               // Awards
+  skills: ["⚙️","🧠","💻","📊","🧪"],      // Skills
+  contact:["✉️","📞","💬","🌐","📍"]       // Contact
+};
+
 
   const SECTIONS = document.querySelectorAll('.bg-floaters');
   if (!SECTIONS.length) return;
