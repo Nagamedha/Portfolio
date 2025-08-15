@@ -144,18 +144,19 @@ section { padding: 100px 0; position: relative; }
   animation: slideInUp 1s ease-out;
 }
 .subtitle {
-  font-size: 1.4rem; margin-bottom: 1rem; opacity: 0.9;
+  font-size: 1.4rem; margin-top: .25rem; margin-bottom: 1.1rem; opacity: 0.9;
   animation: slideInUp 1s ease-out 0.2s both;
 }
 .description {
-  font-size: 1.1rem; margin-bottom: 1.25rem; opacity: 0.85;
+  font-size: 1.1rem; margin-bottom: 1.4rem; opacity: 0.85;
   max-width: 800px; margin-left: auto; margin-right: auto;
   animation: slideInUp 1s ease-out 0.4s both;
 }
 
+
 /* Hero role chips */
 .role-chips {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 10px 0 22px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 6px 0 18px;
 }
 .chip {
   background: rgba(255,255,255,0.15);
@@ -164,6 +165,7 @@ section { padding: 100px 0; position: relative; }
   backdrop-filter: blur(4px);
 }
 .chip-soft { opacity: 0.9; }
+
 
 /* CTA Buttons (reused across site) */
 .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: slideInUp 1s ease-out 0.6s both; }
@@ -331,13 +333,22 @@ section { padding: 100px 0; position: relative; }
 }
 .timeline-item:last-child { margin-right: 0; }
 
-/* external dot centered on the line */
+/* external dot centered on the line
 .timeline-dot {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   width: 18px; height: 18px; background: #fff;
   border: 4px solid var(--primary-color); border-radius: 50%;
   z-index: 3; box-shadow: 0 0 15px rgba(102,126,234,0.3);
-}
+}*/
+/* remove the external dot completely */
+.timeline-dot { display: none !important; }
+
+/* remove the extra padding added for dot alignment */
+.timeline-item { padding-top: 0; }
+
+/* keep the center line only */
+.timeline::before { height: 3px; }
+
 
 /* card UI */
 .timeline-content {
@@ -404,6 +415,23 @@ section { padding: 100px 0; position: relative; }
   text-align: center; margin-top: 2rem; padding: 2rem; background: var(--light-bg); border-radius: 20px;
 }
 .certs-note h4 { color: var(--primary-color); margin-bottom: 1rem; }
+/* awards grid & cards */
+.award-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+  gap: 2rem;
+  margin-top: 1.25rem;
+}
+.award-card {
+  background: #fff;
+  border-radius: 25px;
+  padding: 1.8rem 2rem;
+  border: 1px solid #eee;
+  box-shadow: var(--shadow);
+}
+.award-card h3 { margin-bottom: .35rem; }
+.award-card .muted { color:#666; margin-bottom:.5rem; font-weight:600; }
+
 
 /* =========================
    Contact
@@ -466,27 +494,27 @@ section { padding: 100px 0; position: relative; }
   overflow-wrap: anywhere;
 }
 
-/* email lines */
-.contact-item .email {
-  display: block;
-  font-size: 0.7rem;
-  line-height: 1.4;
-  color: #fff;
-  opacity: 0.9;
-  text-decoration: none;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-  white-space: normal;
-  max-width: 100%;
-  margin-bottom: 0.75rem;
-}
-.contact-item .email:hover { text-decoration: underline; opacity: 1; }
 
-/* If you want them even smaller on mobile */
-@media (max-width: 480px) {
-  .contact-item { padding: 1.0rem; }
-  .contact-item .btn { width: 100%; justify-content: center; }
+/* single‑line emails */
+.contact-item .email{
+  display:inline-block;
+  font-size:0.7rem;           /* as you asked */
+  white-space:nowrap;         /* stay on one line */
+  overflow:hidden;            /* prevent overflow */
+  text-overflow:ellipsis;     /* show … if too long */
+  max-width:100%;
+  color:#fff; opacity:.95; text-decoration:none;
+  margin-bottom:.6rem;
 }
+.contact-item .email:hover{ text-decoration:underline; }
+
+/* keep CTAs on one line */
+.btn{ white-space:nowrap; }
+
+/* equal visual weight for cards */
+.contact-info{ align-items:stretch; }
+.contact-item{ display:flex; flex-direction:column; justify-content:flex-start; gap:.35rem; }
+
 
 
 .contact-item {
@@ -548,6 +576,9 @@ section { padding: 100px 0; position: relative; }
   .skills-grid { grid-template-columns: 1fr; }
   .timeline-item { min-width: 320px; }
 }
+@media (min-width: 992px){
+  .skills-grid{ grid-template-columns: repeat(4,1fr); }
+}
 /* Simple link list (used for Certifications & Other Notable Projects) */
 .link-list {
   list-style: none;
@@ -567,6 +598,12 @@ section { padding: 100px 0; position: relative; }
   opacity: 0.85;
   transform: translateY(-1px);
 }
+/* hero roles spacing */
+.role-groups { display: grid; gap: 1.75rem; margin: 12px auto 28px; max-width: 980px; }
+.role-group { display: grid; gap: .65rem; }
+.role-label { font-weight: 700; font-size: 0.95rem; color: #ffffffd1; letter-spacing:.2px; }
+.hero-cta { margin-top: 8px; }
+
 
 /* Note card (for Recommendation Letter) */
 .note-card {
