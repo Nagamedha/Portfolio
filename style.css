@@ -463,6 +463,46 @@ section { padding: 100px 0; position: relative; }
   .skills-grid { grid-template-columns: 1fr; }
   .timeline-item { min-width: 320px; }
 }
+/* Simple link list (used for Certifications & Other Notable Projects) */
+.link-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.link-list li a {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(102, 126, 234, 0.4);
+  padding-bottom: 2px;
+}
+.link-list li a:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+/* Note card (for Recommendation Letter) */
+.note-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+  border-left: 5px solid var(--primary-color);
+}
+.note-card h4 {
+  margin-bottom: 0.5rem;
+}
+.note-card .small {
+  font-size: 0.9rem;
+  color: #666;
+}
+.certs-note .muted {
+  color: #666;
+  font-size: 0.95rem;
+}
 
 /* =========================
    Small UX niceties
