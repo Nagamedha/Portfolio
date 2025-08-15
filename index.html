@@ -59,28 +59,40 @@
         • Focused on Data/BI/Automation roles now; growing into AI/ML/GenAI.
       </p>
 
-      <!-- Target roles chips (quick signal to recruiters) -->
-      <div class="role-chips" aria-label="Target Roles">
-        <span class="chip">Automation Engineer (AI + RPA)</span>
-        <span class="chip">Business Intelligence Developer</span>
-        <span class="chip">Data Analyst</span>
-        <span class="chip chip-soft">SDE/SWE</span>
-        <span class="chip chip-soft">AI/ML Engineer (Entry)</span>
-        <span class="chip chip-soft">Data Scientist/Engineer (Jr)</span>
-        <span class="chip chip-soft">GenAI Solutions Engineer</span>
-      </div>
 
-      <div class="cta-buttons">
-        <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> Get in Touch</a>
-        <a href="https://github.com/Nagamedha" class="btn btn-outline" target="_blank" rel="noopener">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-        <!-- If you have a resume file in your repo, update the href below -->
-        <a href="Medha_GSU_Resume.pdf" class="btn btn-outline" target="_blank" rel="noopener">
-          <i class="fas fa-file"></i> Résumé
-        </a>
-      </div>
+      <!-- Target roles, split into proven vs aspiring -->
+<div class="role-groups">
+  <div class="role-group">
+    <div class="role-label">Proven experience</div>
+    <div class="role-chips">
+      <span class="chip">Automation Engineer (AI + RPA)</span>
+      <span class="chip">Business Intelligence Developer</span>
+      <span class="chip">Data Analyst</span>
+      <span class="chip">SDE/SWE</span>
     </div>
+  </div>
+
+  <div class="role-group">
+    <div class="role-label">Aspirations (near‑term)</div>
+    <div class="role-chips">
+      <span class="chip chip-soft">AI/ML Engineer (Entry)</span>
+      <span class="chip chip-soft">Data Scientist/Engineer (Jr)</span>
+      <span class="chip chip-soft">GenAI Solutions Engineer</span>
+    </div>
+  </div>
+</div>
+
+<!-- Move CTAs to the very end of hero (after the role-groups) -->
+<div class="cta-buttons hero-cta">
+  <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> Get in Touch</a>
+  <a href="https://github.com/Nagamedha" class="btn btn-outline" target="_blank" rel="noopener">
+    <i class="fab fa-github"></i> GitHub
+  </a>
+  <a href="Medha_GSU_Resume.pdf" class="btn btn-outline" target="_blank" rel="noopener">
+    <i class="fas fa-file"></i> Résumé
+  </a>
+</div>
+
   </section>
 
   <!-- About -->
@@ -164,6 +176,8 @@
   <!-- Skills -->
   <section id="skills" class="skills">
     <div class="container">
+      <!-- inside #skills .container, at the top -->
+      <div class="bg-floaters" data-floaters="skills"></div>
       <h2 class="section-title fade-in">Technical Expertise</h2>
       <p class="section-subtitle fade-in">Automation + Data + AI</p>
 
@@ -443,56 +457,46 @@
     <h2 class="section-title fade-in">Leadership & Awards</h2>
     <p class="section-subtitle fade-in">Recognition for impact</p>
 
-    <div class="education-section fade-in">
-      <div class="education-card">
-        <h3>
-          <a href="https://universityinnovation.org/wiki/Fellow:Nagamedha_Sakhamuri" target="_blank" rel="noopener">
-            Stanford University Innovation Fellow
-          </a>
-        </h3>
-        <div class="degree">Global Leadership Program (d.school)</div>
-        <div class="timeline-description">
-          Selected to lead design thinking workshops and student innovation initiatives.
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">Design Thinking</span>
-          <span class="skill-tag">Leadership</span>
-          <span class="skill-tag">Innovation</span>
-        </div>
-      </div>
-
-      <div class="education-card">
-        <h3>Star of the Month Awards</h3>
-        <div class="degree">HCLTech & TCS</div>
-        <div class="timeline-description">
-          Recognized for ownership, innovation, and driving team success under tight timelines.
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">Ownership</span>
-          <span class="skill-tag">Innovation</span>
-          <span class="skill-tag">Team Leadership</span>
-        </div>
-        
-        <!-- Recommnedation Letter -->
-       <div class="education-card">
-         <h3>
-          </a>
-          <a href="LOR_Medha_Marc_Randstad.pdf" class="btn btn-outline" target="_blank" rel="noopener">
-          <i class="fas fa-file"></i> LOR
-          </a>
-        </h3>
-        <div class="degree">Randstad USA</div>
-        <div class="timeline-description">
-          Recognized for my Summer 2025 Internship..
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">Data Analysis</span>
-          <span class="skill-tag">Data visualization</span>
-          <span class="skill-tag">Team Work</span>
-        </div>
-        </div>
-      </div>
+    <div class="award-grid fade-in">
+  <article class="award-card">
+    <h3>
+      <a href="https://universityinnovation.org/wiki/Fellow:Nagamedha_Sakhamuri" target="_blank" rel="noopener">
+        Stanford University Innovation Fellow
+      </a>
+    </h3>
+    <p class="muted">Global Leadership Program (d.school)</p>
+    <p>Selected to lead design thinking workshops and student innovation initiatives.</p>
+    <div class="skill-tags">
+      <span class="skill-tag">Design Thinking</span>
+      <span class="skill-tag">Leadership</span>
+      <span class="skill-tag">Innovation</span>
     </div>
+  </article>
+
+  <article class="award-card">
+    <h3>Star of the Month Awards</h3>
+    <p class="muted">HCLTech & TCS</p>
+    <p>Recognized for ownership, innovation, and driving team success under tight timelines.</p>
+    <div class="skill-tags">
+      <span class="skill-tag">Ownership</span>
+      <span class="skill-tag">Innovation</span>
+      <span class="skill-tag">Team Leadership</span>
+    </div>
+  </article>
+</div>
+  </div>
+
+<!-- Recommendation letter + resume style actions (same row of buttons) -->
+<div class="note-card doc-actions">
+  <a href="Medha_GSU_Resume.pdf" class="btn btn-outline" target="_blank" rel="noopener">
+    <i class="fas fa-file"></i> View Résumé
+  </a>
+  <a href="LOR_Medha_Marc_Randstad.pdf" class="btn btn-outline" target="_blank" rel="noopener">
+    <i class="fas fa-file-signature"></i> View Recommendation Letter
+  </a>
+</div>
+  
+      
 
     
 
@@ -534,6 +538,10 @@
   <!-- Contact -->
   <section id="contact" class="contact">
     <div class="container">
+
+    <!-- inside #contact .container, at the top -->
+    <div class="bg-floaters" data-floaters="contact"></div>
+
       <h2 class="section-title fade-in">Let's Connect & Collaborate</h2>
 
       <div class="contact-form fade-in" aria-labelledby="contactFormTitle">
