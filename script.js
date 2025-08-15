@@ -235,4 +235,60 @@ document.addEventListener('DOMContentLoaded', () => {
   }));
 })();
 
+/* ===== Horizontal strip helpers ===== */
+(function initHStrips(){
+  const strips = document.querySelectorAll('.h-strip');
+
+  // click-drag with mouse (touch already scrolls natively)
+  strips.forEach(strip => {
+    const track = strip.querySelector('.h-track');
+    if(!track) return;
+    let isDown = false, startX = 0, startLeft = 0;
+
+    track.addEventListener('pointerdown', (e)=>{
+      isDown = true; track.setPointerCapture(e.pointerId);
+      startX = e.clientX; startLeft = track.scrollLeft;
+    });
+    track.addEventListener('pointermove', (e)=>{
+      if(!isDown) return;
+      const dx = e.clientX - startX;
+      track.scrollLeft = startLeft - dx;
+    });
+    track.addEventListener('pointerup',   ()=>{ isDown = false; });
+    track.addEventListener('pointercancel',()=>{ isDown = false; });
+
+    // arrow buttons
+    const id = strip.dataset.strip;
+    const prev = strip.querySelector(`[data-prev="${id}"]`);
+    const next = strip.querySelector(`[data-next="${id}"]`);
+
+    function cardWidth(){
+      // width of one snap column (includes gap)
+      const first = track.firstElementChild;
+      if(!first) return 320;
+      const style = getComputedStyle(track);
+      const gap = parseFloat(style.columnGap || style.gap || 0);
+      return first.getBoundingClientRect().width + gap;
+    }
+
+    function scrollByOne(dir){
+      track.scrollBy({ left: dir * cardWidth(), behavior: 'smooth' });
+    }
+
+    prev?.addEventListener('click', ()=> scrollByOne(-1));
+    next?.addEventListener('click', ()=> scrollByOne( 1));
+
+    // enable/disable buttons at ends
+    function updateBtns(){
+      const max = track.scrollWidth - track.clientWidth - 1;
+      if(prev) prev.disabled = track.scrollLeft <= 0;
+      if(next) next.disabled = track.scrollLeft >= max;
+    }
+    track.addEventListener('scroll', updateBtns, {passive:true});
+    window.addEventListener('resize', updateBtns, {passive:true});
+    updateBtns();
+  });
+})();
+
+
 
