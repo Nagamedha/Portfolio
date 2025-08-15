@@ -414,6 +414,25 @@ section .container{ position:relative; z-index:1; } /* keep content above */
 .exp-list{ padding-left:1.05rem; margin:0 0 .8rem; }
 .exp-list li{ color:#666; margin:.4rem 0; }
 
+.role-label {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 0.3rem 0 1rem;
+  color: #666; /* softer subtitle color */
+  letter-spacing: 0.5px;
+}
+
+.certifications ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.certifications ul li {
+  margin-bottom: 0.4rem; /* optional spacing between items */
+}
+
+
 
 /* Large title shrink a bit on tablets */
 @media (max-width:992px){.hero-title{font-size:3rem}}
