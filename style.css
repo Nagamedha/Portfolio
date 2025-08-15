@@ -529,6 +529,15 @@ section { padding: 100px 0; position: relative; }
   max-width: 100%; /* ensures it stays within the card */
   overflow-wrap: break-word; /* wraps if it's too long */
 }
+.award-card h3 a{
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 800;
+  display:inline;         /* keeps it from spanning the full width */
+  letter-spacing: .2px;
+}
+.award-card h3 a:hover{ opacity:.9; text-decoration: underline; }
+
 
 
 
