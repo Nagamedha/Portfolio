@@ -320,5 +320,72 @@ section .container{ position:relative; z-index:1; } /* keep content above */
   .about-stats{grid-template-columns:1fr}
 }
 
+/* === Universal horizontal strip (snap + swipe) === */
+.h-strip {
+  position: relative;
+}
+
+.h-track {
+  display: grid;
+  grid-auto-flow: column;
+  /* each card width adapts across phone→desktop */
+  grid-auto-columns: clamp(280px, 85vw, 420px);
+  gap: 1.25rem;
+
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 1rem;
+
+  padding: .25rem 1rem .75rem; /* breathing room + scrollbar room */
+}
+.h-track::-webkit-scrollbar { height: 8px; }
+.h-track::-webkit-scrollbar-thumb {
+  background: var(--gradient-1);
+  border-radius: 6px;
+}
+
+.h-card { scroll-snap-align: start; }
+
+/* Desktop: show a little more per card if you like */
+@media (min-width: 992px){
+  .h-track { grid-auto-columns: clamp(320px, 42vw, 460px); }
+}
+
+/* optional: subtle snap “bump” on reduce motion off */
+@media (prefers-reduced-motion: no-preference){
+  .h-track { scroll-behavior: smooth; }
+}
+
+/* === Tiny nav arrows (optional) === */
+.strip-nav {
+  position: absolute; top: -46px; right: 1rem;
+  display: flex; gap: .5rem;
+}
+.strip-btn{
+  border: 0; border-radius: 999px; padding: .5rem .7rem;
+  background: rgba(0,0,0,.05);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+.strip-btn:hover{ background: rgba(0,0,0,.08); }
+
+.strip-btn[disabled]{ opacity:.4; cursor: not-allowed; }
+
+/* === Experience: keep the center line, but lighter, and slim cards === */
+.experience .h-track {
+  background:
+    linear-gradient(to right, transparent 0 1rem, rgba(102,126,234,.25) 1rem calc(100% - 1rem), transparent 0)
+    top 50% / 100% 3px no-repeat;
+}
+.experience .timeline-content { padding: 1.4rem 1.5rem; }
+.experience .timeline-item { min-width: 0; } /* not needed with h-track */
+.experience .timeline-date { margin-bottom: .75rem; }
+
+/* Make each experience/project card behave as a snap card */
+.experience .timeline-content,
+.projects .project-card { scroll-snap-align: start; }
+
+
 /* Large title shrink a bit on tablets */
 @media (max-width:992px){.hero-title{font-size:3rem}}
