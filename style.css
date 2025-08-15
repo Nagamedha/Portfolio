@@ -198,6 +198,23 @@ section { padding: 100px 0; position: relative; }
 /* =========================
    About
 ========================= */
+/* Replace photo circle with initials */
+.profile-img.profile-initials {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  color: #fff;
+  background: var(--gradient-1);
+  border: 5px solid var(--primary-color);
+  box-shadow: var(--shadow);
+}
+
 .about { background: var(--light-bg); position: relative; }
 .about::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 100px;
@@ -438,13 +455,39 @@ section { padding: 100px 0; position: relative; }
   text-decoration: underline;
   opacity: 1;
 }
+/* email overflow fixes*/
+/* let grid items shrink so long content wraps inside */
+.contact-info {
+  overflow: hidden; /* safety */
+}
+.contact-item {
+  min-width: 0;     /* CRITICAL for wrapping inside CSS grid */
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* email lines */
+.contact-item .email {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #fff;
+  opacity: 0.9;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  max-width: 100%;
+  margin-bottom: 0.75rem;
+}
+.contact-item .email:hover { text-decoration: underline; opacity: 1; }
 
 /* If you want them even smaller on mobile */
-@media (max-width: 768px) {
-  .contact-item .email {
-    font-size: 0.85rem;
-  }
+@media (max-width: 480px) {
+  .contact-item { padding: 1.5rem; }
+  .contact-item .btn { width: 100%; justify-content: center; }
 }
+
 
 .contact-item {
   word-wrap: break-word;
@@ -544,6 +587,53 @@ section { padding: 100px 0; position: relative; }
 .certs-note .muted {
   color: #666;
   font-size: 0.95rem;
+}
+
+/* container that holds animated floaters */
+.bg-floaters {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0; /* behind section content */
+  opacity: 0.25; /* soft */
+}
+
+/* individual floating glyphs */
+.bg-floater {
+  position: absolute;
+  font-size: 24px;             /* base size; JS will randomize scale */
+  color: rgba(255,255,255,0.9); /* base (we also tint via filter) */
+  user-select: none;
+  animation: floater-drift linear infinite;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.08));
+}
+
+/* drift animation */
+@keyframes floater-drift {
+  0%   { transform: translateY(40px) translateX(0) scale(1); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(-120vh) translateX(0) scale(1); opacity: 0; }
+}
+
+/* palette tints (white/off-white/violets only) */
+.floater-tint-1 { color: #ffffff; }
+.floater-tint-2 { color: #f7f5ff; }  /* off-white with violet hint */
+.floater-tint-3 { color: #e9e6ff; }
+.floater-tint-4 { color: #dcd7ff; }
+.floater-tint-5 { color: #c9c2ff; }
+
+/* make sure sections stack content above the floaters */
+section .container { position: relative; z-index: 1; }
+
+.doc-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0 0;
+  justify-content: center;
 }
 
 
