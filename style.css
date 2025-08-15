@@ -858,6 +858,51 @@ section .container { position: relative; z-index: 1; }
   justify-content: center;
 }
 
+/* --- Mobile navbar: keep one line, allow horizontal scroll --- */
+@media (max-width: 768px){
+  .navbar{
+    top: 0; left: 0; right: 0;
+    transform: none;
+    border-radius: 0;
+    padding: 10px 12px;
+  }
+  .nav-menu{
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;          /* <- no wrapping */
+    overflow-x: auto;           /* <- scroll horizontally if needed */
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    justify-content: flex-start; /* don't try to center a long row */
+  }
+  .nav-menu::-webkit-scrollbar{ display:none; }
+}
+
+/* --- Make sure the hero can't hide under the fixed navbar --- */
+/* JS below sets --nav-h dynamically; this is the usage */
+.hero{
+  padding-top: calc(var(--nav-h, 64px) + 16px);  /* safe top offset */
+}
+
+/* --- Phone sizing for hero so everything fits nicely --- */
+@media (max-width: 768px){
+  .hero-content{
+    grid-template-columns: 1fr; /* stack image + text */
+    text-align: center;
+    gap: 1rem;
+  }
+  .hero-image{ width: 140px; height: 140px; margin: 0 auto .5rem; }
+  .hero-title{ font-size: 2rem; line-height: 1.15; }
+  .subtitle{ font-size: 1.05rem; }
+  .hero-points{
+    font-size: .95rem;
+    max-width: 32rem;
+    margin: 0 auto 1rem;
+    padding-left: 1rem;
+  }
+  .role-chips .chip{ font-size: .82rem; padding: 6px 10px; }
+}
+
 
 /* =========================
    Small UX niceties
