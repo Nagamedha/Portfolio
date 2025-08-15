@@ -417,21 +417,28 @@ section .container{ position:relative; z-index:1; } /* keep content above */
 
 
 /* --- Certifications: remove dots/markers completely --- */
-.certs-note .link-list,
-.certs-note ul{
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
+.certifications-title {
+  text-align: center;
+  font-weight: bold;
+  color: #6c63ff; /* match your heading color */
 }
-.certs-note li{
-  position: relative;
-  padding-left: 0;         /* keep links close to the left edge */
+
+.certifications-list {
+  list-style: none;        /* remove dots */
+  padding-left: 0;         /* remove indent */
+  margin-left: 0;
+  text-align: center;      /* center all links */
 }
-.certs-note li::marker,
-.certs-note li::before{
-  content: '' !important;  /* kill any custom markers (just in case) */
-  display: none !important;
+
+.certifications-list li {
+  margin-bottom: 8px;      /* space between items */
 }
+
+.certifications-list a {
+  text-decoration: underline;
+  color: blue;
+}
+
 
 /* --- Hero: make 'Proven experience' / 'Aspirations' a bold centered subtitle
        and add breathing room above it --- */
