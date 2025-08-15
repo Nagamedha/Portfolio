@@ -142,3 +142,54 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
+
+/* === SECTION FLOATERS (books & medals) ===
+   Creates subtle animated icons that drift upwards behind content.
+   Colors constrained to white/off-white/violet tints (CSS classes). */
+
+(function initFloaters() {
+  const ICONS = {
+    books: ["📘","📗","📙","📕","📚"],   // Education
+    medals:["🏅","🎖️","🏆"]            // Awards
+  };
+
+  const SECTIONS = document.querySelectorAll('.bg-floaters');
+  if (!SECTIONS.length) return;
+
+  SECTIONS.forEach(container => {
+    const type = container.getAttribute('data-floaters');
+    const set = ICONS[type] || [];
+    const count = 12; // adjust density
+
+    for (let i = 0; i < count; i++) {
+      const span = document.createElement('span');
+      span.className = 'bg-floater floater-tint-' + (1 + (i % 5));
+      span.textContent = set[i % set.length];
+
+      // randomize start
+      const left = Math.random() * 100;         // %
+      const delay = Math.random() * 6;          // s
+      const duration = 10 + Math.random() * 10; // 10–20s
+      const scale = 0.8 + Math.random() * 1.2;  // 0.8–2.0
+      const horizDrift = (Math.random() - 0.5) * 40; // px side wiggle via CSS variable
+
+      span.style.left = left + '%';
+      span.style.bottom = '-40px';
+      span.style.animationDuration = duration + 's';
+      span.style.animationDelay = delay + 's';
+      span.style.transform = `translateY(40px) translateX(${horizDrift}px) scale(${scale})`;
+
+      // gentle alternating side sway
+      span.animate(
+        [
+          { transform: `translateY(40px) translateX(${horizDrift}px) scale(${scale})` },
+          { transform: `translateY(-120vh) translateX(${horizDrift * -1}px) scale(${scale})` }
+        ],
+        { duration: (duration * 1000), delay: (delay * 1000), iterations: Infinity, easing: 'linear' }
+      );
+
+      container.appendChild(span);
+    }
+  });
+})();
+
