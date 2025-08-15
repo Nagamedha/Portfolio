@@ -211,3 +211,28 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
+// set --nav-h so hero never hides under the fixed nav
+(function fixNavOffset(){
+  const nav = document.getElementById('navbar');
+  if(!nav) return;
+  function update(){ document.documentElement.style.setProperty('--nav-h', nav.getBoundingClientRect().height + 'px'); }
+  update(); window.addEventListener('resize', update, {passive:true}); window.addEventListener('load', update);
+})();
+
+// mobile hamburger toggle
+(function(){
+  const nav = document.getElementById('navbar');
+  const btn = document.getElementById('navToggle');
+  const menu = document.getElementById('navMenu');
+  if(!nav || !btn || !menu) return;
+  btn.addEventListener('click',()=>{
+    const open = nav.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  // close after clicking a link
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click',()=>{
+    nav.classList.remove('is-open'); btn.setAttribute('aria-expanded','false');
+  }));
+})();
+
+
