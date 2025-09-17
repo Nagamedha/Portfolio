@@ -236,60 +236,58 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 /* ===== Horizontal strip helpers ===== */
+/* ===== Horizontal strip helpers (PATCHED) ===== */
 (function initHStrips(){
   const strips = document.querySelectorAll('.h-strip');
 
-  // click-drag with mouse (touch already scrolls natively)
   strips.forEach(strip => {
     const track = strip.querySelector('.h-track');
-    if(!track) return;
+    if (!track) return;
     let isDown = false, startX = 0, startLeft = 0;
 
+    // Prevent dragging when clicking on interactive elements
     track.addEventListener('pointerdown', (e) => {
-  const isClickable = e.target.closest('a, button');
+      const isClickable = e.target.closest('a, button');
+      if (isClickable) return;
+      isDown = true;
+      track.setPointerCapture(e.pointerId);
+      startX = e.clientX;
+      startLeft = track.scrollLeft;
+    });
 
-  // NEW: skip drag AND allow default click
-  if (isClickable) {
-    return; // don't block clicks
-  }
+    // Allow links to open as usual
+    track.addEventListener('click', (e) => {
+      const isLink = e.target.closest('a[href]');
+      if (isLink) {
+        // force navigation in case drag logic blocked it
+        const href = isLink.getAttribute('href');
+        const target = isLink.getAttribute('target');
+        if (href) {
+          if (target === '_blank') window.open(href, '_blank');
+          else window.location.href = href;
+        }
+      }
+    });
 
-  isDown = true;
-  track.setPointerCapture(e.pointerId);
-  startX = e.clientX;
-  startLeft = track.scrollLeft;
-});
-
-track.addEventListener('click', (e) => {
-  const isClickable = e.target.closest('a, button');
-  if (isClickable) {
-    e.stopPropagation(); // avoid bubbling to strip/track
-  }
-});
-
-
-
-    track.addEventListener('pointermove', (e)=>{
-      if(!isDown) return;
+    track.addEventListener('pointermove', (e) => {
+      if (!isDown) return;
       const dx = e.clientX - startX;
       track.scrollLeft = startLeft - dx;
     });
     track.addEventListener('pointerup',   ()=>{ isDown = false; });
     track.addEventListener('pointercancel',()=>{ isDown = false; });
 
-    // arrow buttons
     const id = strip.dataset.strip;
     const prev = strip.querySelector(`[data-prev="${id}"]`);
     const next = strip.querySelector(`[data-next="${id}"]`);
 
     function cardWidth(){
-      // width of one snap column (includes gap)
       const first = track.firstElementChild;
       if(!first) return 320;
       const style = getComputedStyle(track);
       const gap = parseFloat(style.columnGap || style.gap || 0);
       return first.getBoundingClientRect().width + gap;
     }
-
 
     function scrollByOne(dir){
       track.scrollBy({ left: dir * cardWidth(), behavior: 'smooth' });
@@ -298,17 +296,17 @@ track.addEventListener('click', (e) => {
     prev?.addEventListener('click', ()=> scrollByOne(-1));
     next?.addEventListener('click', ()=> scrollByOne( 1));
 
-    // enable/disable buttons at ends
     function updateBtns(){
       const max = track.scrollWidth - track.clientWidth - 1;
-      if(prev) prev.disabled = track.scrollLeft <= 0;
-      if(next) next.disabled = track.scrollLeft >= max;
+      if (prev) prev.disabled = track.scrollLeft <= 0;
+      if (next) next.disabled = track.scrollLeft >= max;
     }
-    track.addEventListener('scroll', updateBtns, {passive:true});
-    window.addEventListener('resize', updateBtns, {passive:true});
+    track.addEventListener('scroll', updateBtns, { passive: true });
+    window.addEventListener('resize', updateBtns, { passive: true });
     updateBtns();
   });
 })();
+
 
 
 
