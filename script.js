@@ -271,6 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return first.getBoundingClientRect().width + gap;
     }
 
+
     function scrollByOne(dir){
       track.scrollBy({ left: dir * cardWidth(), behavior: 'smooth' });
     }
@@ -289,6 +290,11 @@ document.addEventListener('DOMContentLoaded', () => {
     updateBtns();
   });
 })();
+document.querySelectorAll('.project-links a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+});
 
 
 
