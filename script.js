@@ -245,10 +245,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if(!track) return;
     let isDown = false, startX = 0, startLeft = 0;
 
-    track.addEventListener('pointerdown', (e)=>{
-      isDown = true; track.setPointerCapture(e.pointerId);
-      startX = e.clientX; startLeft = track.scrollLeft;
+    track.addEventListener('pointerdown', (e) => {
+      // ✅ Ignore dragging if the user clicked on a link or button
+      const isClickable = e.target.closest('a, button');
+      if (isClickable) return;
+
+      isDown = true;
+      track.setPointerCapture(e.pointerId);
+      startX = e.clientX;
+      startLeft = track.scrollLeft;
     });
+
+
     track.addEventListener('pointermove', (e)=>{
       if(!isDown) return;
       const dx = e.clientX - startX;
@@ -290,11 +298,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateBtns();
   });
 })();
-document.querySelectorAll('.project-links a').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.stopPropagation();
-  });
-});
 
 
 
