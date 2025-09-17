@@ -246,15 +246,26 @@ document.addEventListener('DOMContentLoaded', () => {
     let isDown = false, startX = 0, startLeft = 0;
 
     track.addEventListener('pointerdown', (e) => {
-      // ✅ Ignore dragging if the user clicked on a link or button
-      const isClickable = e.target.closest('a, button');
-      if (isClickable) return;
+  const isClickable = e.target.closest('a, button');
 
-      isDown = true;
-      track.setPointerCapture(e.pointerId);
-      startX = e.clientX;
-      startLeft = track.scrollLeft;
-    });
+  // NEW: skip drag AND allow default click
+  if (isClickable) {
+    return; // don't block clicks
+  }
+
+  isDown = true;
+  track.setPointerCapture(e.pointerId);
+  startX = e.clientX;
+  startLeft = track.scrollLeft;
+});
+
+track.addEventListener('click', (e) => {
+  const isClickable = e.target.closest('a, button');
+  if (isClickable) {
+    e.stopPropagation(); // avoid bubbling to strip/track
+  }
+});
+
 
 
     track.addEventListener('pointermove', (e)=>{
