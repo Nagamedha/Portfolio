@@ -459,6 +459,9 @@ section .container{ position:relative; z-index:1; } /* keep content above */
 /* also give a bit more space after the hero bullet list */
 .hero-points{ margin-bottom: 1rem !important; }
 
+.project-links a {
+  pointer-events: auto;
+}
 
 
 /* Large title shrink a bit on tablets */
